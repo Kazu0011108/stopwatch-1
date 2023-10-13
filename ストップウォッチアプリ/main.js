@@ -3,14 +3,14 @@ const startButton = document.getElementById('start');
 const stopButton = document.getElementById('stop');
 const resetButton = document.getElementById('reset');
 
-// 開始時間
+
 let startTime;
-// 停止時間
+
 let stopTime = 0;
-// タイムアウトID
+
 let timeoutID;
 
-// 時間を表示する関数
+
 function displayTime() {
   const currentTime = new Date(Date.now() - startTime + stopTime);
   const h = String(currentTime.getHours()-1).padStart(2, '0');
@@ -22,7 +22,7 @@ function displayTime() {
   timeoutID = setTimeout(displayTime, 10);
 }
 
-// スタートボタンがクリックされたら時間を進める
+
 startButton.addEventListener('click', () => {
   startButton.disabled = true;
   stopButton.disabled = false;
@@ -31,7 +31,7 @@ startButton.addEventListener('click', () => {
   displayTime();
 });
 
-// ストップボタンがクリックされたら時間を止める
+
 stopButton.addEventListener('click', function() {
   startButton.disabled = false;
   stopButton.disabled = true;
@@ -40,7 +40,7 @@ stopButton.addEventListener('click', function() {
   stopTime += (Date.now() - startTime);
 });
 
-// リセットボタンがクリックされたら時間を0に戻す
+
 resetButton.addEventListener('click', function() {
   startButton.disabled = false;
   stopButton.disabled = true;
